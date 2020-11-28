@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import database from './Database'
 
 import './ShoppingList.scss'
 
 const ShoppingListElement = props => {
-  return <div className='ShoppingListElement'>{props.ingredient}</div>
+  const [checked, setChecked] = useState(false)
+
+  return (
+    <div
+      className={checked ? 'ShoppingListElementChecked' : 'ShoppingListElement'}
+      onClick={() => setChecked(!checked)}
+    >
+      {props.ingredient}
+    </div>
+  )
 }
 
 const ShoppingList = props => {
