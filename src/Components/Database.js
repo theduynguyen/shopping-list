@@ -114,6 +114,10 @@ const database = {
     type: 'Evergreens',
     ingredients: ['Butter']
   },
+  Joghurt: {
+    type: 'Evergreens',
+    ingredients: ['Joghurt']
+  },
   Mehl: {
     type: 'Evergreens',
     ingredients: ['Mehl']
