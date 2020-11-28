@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Select from 'react-select'
-import { Link } from 'react-router-dom'
 
 import database, { groupByType } from './Database'
 
@@ -16,8 +15,6 @@ const RecipeList = props => {
       }
     }
   )
-
-  console.log(props.selectedRecipes)
 
   return (
     <main>

@@ -1,7 +1,4 @@
 import React, { useState } from 'react'
-import { Route, Switch, Link } from 'react-router-dom'
-
-import database, { groupByType } from './Database'
 import RecipeList from './RecipeList'
 import ShoppingList from './ShoppingList'
 
@@ -25,11 +22,6 @@ const App = props => {
           setSeeShoppingList={setSeeShoppingList}
         />
       )}
-
-      {/* <Switch>
-        <Route path='/' component={RecipeList} exact />
-        <Route path='/shopping' component={IngredientList} />
-      </Switch> */}
     </div>
   )
 }
