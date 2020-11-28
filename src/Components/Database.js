@@ -5,7 +5,13 @@ const database = {
   },
   'Spaghetti Bolognese': {
     type: 'Gericht',
-    ingredients: ['Spaghetti', 'Passierte Tomaten', 'Möhren', 'Hack']
+    ingredients: [
+      'Spaghetti',
+      'Passierte Tomaten',
+      'Möhren',
+      'Hack',
+      'Parmesan'
+    ]
   },
   Abendbrot: {
     type: 'Gericht',
@@ -66,7 +72,7 @@ const database = {
   },
   'Hähnchen Xao': {
     type: 'Gericht',
-    ingredients: ['Tofu Xao', 'Brokkoli', 'Paprika']
+    ingredients: ['Tofu', 'Brokkoli', 'Paprika']
   },
   Spargel: {
     type: 'Gericht',
