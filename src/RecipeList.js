@@ -5,10 +5,7 @@ import { Link } from 'react-router-dom'
 import database, { groupByType } from './Database'
 
 const RecipeList = props => {
-  const [selectedRecipes, setSelectedRecipes] = useState([])
-
   const recipesGrouped = groupByType(database)
-
   const optionsGrouped = Object.entries(recipesGrouped).map(
     ([group, items]) => {
       return {
@@ -20,24 +17,23 @@ const RecipeList = props => {
     }
   )
 
+  console.log(props.selectedRecipes)
+
   return (
     <main>
       <Select
         isMulti
         name='Recipes'
+        defaultValue={props.selectedRecipes}
         options={optionsGrouped}
         className='basic-multi-select'
         classNamePrefix='select'
-        onChange={selected => setSelectedRecipes(selected)}
+        onChange={selected => props.setSelectedRecipes(selected)}
       />
-      <Link
-        to={{
-          pathname: '/shopping',
-          selectedRecipes: selectedRecipes
-        }}
-      >
+
+      <button onClick={() => props.setSeeShoppingList(true)}>
         Shopping List
-      </Link>
+      </button>
     </main>
   )
 }

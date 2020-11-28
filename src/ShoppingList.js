@@ -8,9 +8,7 @@ const ShoppingListElement = props => {
 }
 
 const ShoppingList = props => {
-  const selectedRecipes = props.selectedRecipes ? props.selectedRecipes : []
-
-  let shoppingList = selectedRecipes.map(
+  let shoppingList = props.selectedRecipes.map(
     recipe => database[recipe.value]['ingredients']
   )
   if (shoppingList.length > 0) {
@@ -24,7 +22,7 @@ const ShoppingList = props => {
         <ShoppingListElement key={idx} ingredient={x} />
       ))}
 
-      <button onClick={() => props.setShowList(false)}>Back</button>
+      <button onClick={() => props.setSeeShoppingList(false)}>Back</button>
     </main>
   )
 }
