@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import RecipeList from './RecipeList'
-import ShoppingList from './ShoppingList'
+import RecipeList from './Components/RecipeList'
+import ShoppingList from './Components/ShoppingList'
 
 import './App.scss'
 

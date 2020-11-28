@@ -1,6 +1,8 @@
 import React from 'react'
 import database from './Database'
 
+import './ShoppingList.scss'
+
 const ShoppingListElement = props => {
   return <div className='ShoppingListElement'>{props.ingredient}</div>
 }
@@ -15,13 +17,13 @@ const ShoppingList = props => {
   }
 
   return (
-    <main>
+    <div className='ShoppingList'>
       {shoppingList.map((x, idx) => (
         <ShoppingListElement key={idx} ingredient={x} />
       ))}
 
       <button onClick={() => props.setSeeShoppingList(false)}>Back</button>
-    </main>
+    </div>
   )
 }
 
