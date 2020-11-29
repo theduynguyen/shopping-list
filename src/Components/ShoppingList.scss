@@ -1,22 +1,42 @@
 .ShoppingList {
-    display: flex;
-    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
     text-align: center;
     
-    > main {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    
+    > header {
 
+    }
+
+    > main {
+        overflow: auto;
+        flex: 5 5;
+        padding: 10px 0px 10px;
+        text-align: left;
     }
 
     > footer {
+        overflow: hidden;
+        flex: 1 1;
+        padding: 10px 0px 10px;
 
+        > button {
+            width: 100%;
+            height: 100%;
+        }
     }
+}
 
-    .ShoppingListElement {
+.ShoppingListElement {
 
-    }
-    
-    .ShoppingListElementChecked {
-        background-color: red;
-    }
+}
+
+.ShoppingListElementChecked {
+    background-color: red;
+    text-decoration: line-through;
 }
 

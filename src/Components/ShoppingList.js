@@ -27,11 +27,18 @@ const ShoppingList = props => {
 
   return (
     <div className='ShoppingList'>
-      {shoppingList.map((x, idx) => (
-        <ShoppingListElement key={idx} ingredient={x} />
-      ))}
+      <header>
+        <h1>Shopping List</h1>
+      </header>
+      <main>
+        {shoppingList.map((x, idx) => (
+          <ShoppingListElement key={idx} ingredient={x} />
+        ))}
+      </main>
 
-      <button onClick={() => props.setSeeShoppingList(false)}>Back</button>
+      <footer>
+        <button onClick={() => props.setSeeShoppingList(false)}>Back</button>
+      </footer>
     </div>
   )
 }

@@ -19,6 +19,10 @@ const RecipeList = props => {
 
   return (
     <div className='RecipeList'>
+      <header>
+        <h1>To buy</h1>
+      </header>
+
       <main>
         <Select
           isMulti
