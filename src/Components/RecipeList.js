@@ -2,6 +2,8 @@ import React from 'react'
 import Select from 'react-select'
 
 import database, { groupByType } from './Database'
+import { APP_STATES } from './AppStates'
+
 import './RecipeList.scss'
 
 const RecipeList = props => {
@@ -36,8 +38,12 @@ const RecipeList = props => {
       </main>
 
       <footer>
-        <button onClick={() => props.setSeeShoppingList(true)}>
-          Shopping List
+        <button
+          onClick={() =>
+            props.setAppState(APP_STATES.PRELIMINARY_SHOPPING_LIST)
+          }
+        >
+          Next
         </button>
       </footer>
     </div>
