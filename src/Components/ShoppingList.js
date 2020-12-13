@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import database from './Database'
 import { APP_STATES } from './AppStates'
 
 import './ShoppingList.scss'

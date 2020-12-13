@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import RecipeList from './Components/RecipeList'
 import {
   PreliminaryShoppingList,
@@ -10,9 +11,17 @@ import { APP_STATES } from './Components/AppStates'
 import './App.scss'
 
 const App = props => {
+  const [backendHost, setBackendHost] = useState('')
+  const [currentDatabase, setCurrentDatabase] = useState({})
   const [selectedRecipes, setSelectedRecipes] = useState([])
   const [shoppingList, setShoppingList] = useState({})
-  const [appState, setAppState] = useState(APP_STATES.RECIPE_LIST)
+  const [appState, setAppState] = useState(APP_STATES.SET_BACKEND)
+
+  const fetchDB = async () => {
+    const res = await axios.get(`${backendHost}/get_db`)
+    setCurrentDatabase(res.data)
+    setAppState(APP_STATES.RECIPE_LIST)
+  }
 
   // update checkable shopping list every time the recipes change
   useEffect(() => {
@@ -43,9 +52,18 @@ const App = props => {
 
   let mainComponent = null
   switch (appState) {
+    case APP_STATES.SET_BACKEND:
+      mainComponent = (
+        <div className='SetBackend'>
+          Backend Host <input onChange={e => setBackendHost(e.target.value)} />{' '}
+          <button onClick={() => fetchDB()}>Go</button>
+        </div>
+      )
+      break
     case APP_STATES.RECIPE_LIST:
       mainComponent = (
         <RecipeList
+          database={currentDatabase}
           selectedRecipes={selectedRecipes}
           setSelectedRecipes={setSelectedRecipes}
           setAppState={setAppState}

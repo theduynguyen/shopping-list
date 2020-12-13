@@ -1,13 +1,13 @@
 import React from 'react'
 import Select from 'react-select'
 
-import database, { groupByType } from './Database'
+import { groupByType } from './Database'
 import { APP_STATES } from './AppStates'
 
 import './RecipeList.scss'
 
 const RecipeList = props => {
-  const recipesGrouped = groupByType(database)
+  const recipesGrouped = groupByType(props.database)
   const optionsGrouped = Object.entries(recipesGrouped).map(
     ([group, items]) => {
       return {
