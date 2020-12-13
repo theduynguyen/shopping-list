@@ -12,12 +12,14 @@ import './App.scss'
 
 const App = props => {
   const [backendHost, setBackendHost] = useState('')
+  const [hostLoadingFeedback, setHostLoadingFeedback] = useState('')
   const [currentDatabase, setCurrentDatabase] = useState({})
   const [selectedRecipes, setSelectedRecipes] = useState([])
   const [shoppingList, setShoppingList] = useState({})
   const [appState, setAppState] = useState(APP_STATES.SET_BACKEND)
 
   const fetchDB = async () => {
+    setHostLoadingFeedback('Loading...')
     const res = await axios.get(`${backendHost}/get_db`)
     setCurrentDatabase(res.data)
     setAppState(APP_STATES.RECIPE_LIST)
@@ -55,8 +57,14 @@ const App = props => {
     case APP_STATES.SET_BACKEND:
       mainComponent = (
         <div className='SetBackend'>
-          Backend Host <input onChange={e => setBackendHost(e.target.value)} />{' '}
-          <button onClick={() => fetchDB()}>Go</button>
+          <header>
+            <h1>Backend Host</h1>
+          </header>
+          <main>
+            <input onChange={e => setBackendHost(e.target.value)} />
+            <button onClick={() => fetchDB()}>Go</button>
+          </main>
+          <footer>{hostLoadingFeedback}</footer>
         </div>
       )
       break
