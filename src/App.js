@@ -20,7 +20,8 @@ const App = props => {
 
   const fetchDB = async () => {
     setHostLoadingFeedback('Loading...')
-    const res = await axios.get(`${backendHost}/get_db`)
+    const fetchUrl = new URL('/get_db', backendHost)
+    const res = await axios.get(fetchUrl)
     setCurrentDatabase(res.data)
     setAppState(APP_STATES.RECIPE_LIST)
   }
