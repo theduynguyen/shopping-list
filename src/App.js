@@ -28,7 +28,7 @@ const App = props => {
   // update checkable shopping list every time the recipes change
   useEffect(() => {
     const tempShoppingList = selectedRecipes.reduce((acc, recipe) => {
-      let ingredients = database[recipe.value]['ingredients']
+      let ingredients = currentDatabase[recipe.value]['shopping_list']
       if (ingredients.length > 0) {
         ingredients = ingredients.flat()
         ingredients = Array.from(new Set(ingredients))
